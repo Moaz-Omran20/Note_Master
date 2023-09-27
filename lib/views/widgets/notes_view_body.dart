@@ -8,12 +8,12 @@ class NotesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return  const SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Column(
           children: [
-            CustomAppBar(),
+            CustomAppBar(title:"Notes",icon:Icons.search ),
             Expanded(child: NotesListView()),
           ],
         ),

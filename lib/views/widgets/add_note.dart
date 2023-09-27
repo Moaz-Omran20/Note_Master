@@ -14,24 +14,24 @@ class AddNote extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             CustomTextField(
               hintText: "Title",
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             CustomTextField(
               hintText: "Content",
               maxLines: 6,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            CustomButton(),
-            SizedBox(
+            const CustomButton(),
+            const SizedBox(
               height: 20,
             ),
           ],
