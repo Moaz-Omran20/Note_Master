@@ -4,7 +4,6 @@ import '../../constants/colors.dart';
 
 class CustomButton extends StatelessWidget {
 
-
   CustomButton({super.key, this.onTap});
   void Function()? onTap;
   @override
