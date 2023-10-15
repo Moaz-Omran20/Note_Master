@@ -14,28 +14,37 @@ class NotesView extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
             onPressed: () {
               showModalBottomSheet(
+                isScrollControlled: true,
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(18),
                         topLeft: Radius.circular(18))),
                 context: context,
                 builder: (context) {
-                  return BlocConsumer<AddNotesCubit, AddNotesState>(
-                    listener: (context, state) {
-                      if(state is AddNotesSuccess)
-                        {
+                  return BlocProvider(
+                    create: (context) => AddNotesCubit(),
+                    child: BlocConsumer<AddNotesCubit, AddNotesState>(
+                      listener: (context, state) {
+                        if (state is AddNotesSuccess) {
                           Navigator.pop(context);
                         }
-                      if(state is AddNotesFailure)
-                        {
-                          print("Note added successfully");
+                        if (state is AddNotesFailure) {
+                          print("Note not added");
                         }
-                    },
-                    builder: (context, state) {
-                      return ModalProgressHUD(
-                          inAsyncCall: state is AddNotesLoading ? true : false,
-                          child: const AddNote());
-                    },
+                      },
+                      builder: (context, state) {
+                        return Padding(
+                          padding:  EdgeInsets.only(bottom:MediaQuery.of(context).viewInsets.bottom ),
+                          child: ModalProgressHUD(
+                              inAsyncCall:
+                                  state is AddNotesLoading ? true : false,
+                              child: AbsorbPointer(
+                                  absorbing:
+                                      state is AddNotesLoading ? true : false,
+                                  child: const AddNote())),
+                        );
+                      },
+                    ),
                   );
                 },
               );

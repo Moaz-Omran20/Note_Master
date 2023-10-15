@@ -10,7 +10,7 @@ class SimpleBlocObserver implements BlocObserver
 
   @override
   void onClose(BlocBase bloc) {
-    // TODO: implement onClose
+    debugPrint('change = $bloc');
   }
 
   @override
