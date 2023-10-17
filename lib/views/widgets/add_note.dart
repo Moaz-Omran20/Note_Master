@@ -5,7 +5,6 @@ import 'package:note/constants/colors.dart';
 import 'package:note/cubits/add_notes/add_notes_cubit.dart';
 import 'package:note/models/note_model.dart';
 import 'package:note/views/widgets/custom_button.dart';
-
 import 'custom_textfield.dart';
 
 class AddNote extends StatelessWidget {
