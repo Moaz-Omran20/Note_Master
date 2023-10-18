@@ -5,6 +5,7 @@ import 'package:note/constants/colors.dart';
 import 'package:note/cubits/add_notes/add_notes_cubit.dart';
 import 'package:note/models/note_model.dart';
 import 'package:note/views/widgets/custom_button.dart';
+import 'colors_listview.dart';
 import 'custom_textfield.dart';
 
 class AddNote extends StatelessWidget {
@@ -91,69 +92,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
   }
 }
 
-class ColorItem extends StatelessWidget {
-  bool isActive;
-  Color color;
 
-  ColorItem({required this.isActive, required this.color});
 
-  @override
-  Widget build(BuildContext context) {
-    return isActive
-        ?  CircleAvatar(
-            radius: 40,
-            backgroundColor: Colors.white,
-            child: CircleAvatar(
-              radius: 28,
-              backgroundColor: color,
-            ),
-          )
-        : CircleAvatar(
-            radius: 35,
-            backgroundColor: color,
-          );
-  }
-}
 
-class ColorsListView extends StatefulWidget {
-  @override
-  State<ColorsListView> createState() => _ColorsListViewState();
-}
-
-class _ColorsListViewState extends State<ColorsListView> {
-  bool? isActive;
-  int currentIndex = 0;
-  List<Color> colors = [
-    Color(0xFF219C90),
-    Color(0xFFE9B824),
-    Color(0xFFEE9322),
-    Color(0xFFD83F31),
-    Color(0xFFA7D397),
-    Color(0xFF016A70),
-    Color(0xFFD2DE32),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 35 * 2,
-      child: ListView.builder(
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: GestureDetector(
-                  onTap: () {
-                    currentIndex = index;
-                    setState(() {});
-                  },
-                  child: ColorItem(
-                    isActive: currentIndex == index,
-                    color: colors[index],
-                  )),
-            );
-          },
-          itemCount: colors.length,
-          scrollDirection: Axis.horizontal),
-    );
-  }
-}
