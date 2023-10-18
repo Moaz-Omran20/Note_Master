@@ -11,7 +11,7 @@ class EditNoteViewBody extends StatefulWidget {
   NoteModel note;
 
 
-  EditNoteViewBody({required this.note});
+  EditNoteViewBody({super.key, required this.note});
 
   @override
   State<EditNoteViewBody> createState() => _EditNoteViewBodyState();

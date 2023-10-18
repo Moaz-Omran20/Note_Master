@@ -8,7 +8,7 @@ class EditNoteView extends StatelessWidget {
   NoteModel note;
 
 
-  EditNoteView({required this.note});
+  EditNoteView({super.key, required this.note});
 
   @override
   Widget build(BuildContext context) {

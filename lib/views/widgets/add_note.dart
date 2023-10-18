@@ -60,7 +60,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: "SubTitle",
             maxLines: 6,
           ),
-          ColorsListView(),
+          const ColorsListView(),
           const SizedBox(
             height: 20,
           ),

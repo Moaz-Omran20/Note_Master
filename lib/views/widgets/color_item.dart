@@ -4,7 +4,7 @@ class ColorItem extends StatelessWidget {
   bool isActive;
   Color color;
 
-  ColorItem({required this.isActive, required this.color});
+  ColorItem({super.key, required this.isActive, required this.color});
 
   @override
   Widget build(BuildContext context) {

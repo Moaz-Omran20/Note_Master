@@ -7,10 +7,10 @@ import '../../cubits/notes/notes_cubit.dart';
 
 class NoteItem extends StatelessWidget {
 
-  NoteModel note;
+  final NoteModel note;
 
 
-  NoteItem({super.key, required this.note});
+  const NoteItem({super.key, required this.note});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class NoteItem extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.yellow,
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
