@@ -18,7 +18,7 @@ class NoteItem extends StatelessWidget {
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return EditNoteView();
+            return EditNoteView(note:note);
           },
         ));
       },
@@ -36,7 +36,7 @@ class NoteItem extends StatelessWidget {
               ListTile(
                 title: Text(
                   note.title,
-                  style: TextStyle(fontSize: 26, color: Colors.black),
+                  style: const TextStyle(fontSize: 26, color: Colors.black),
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 12, bottom: 12),
@@ -51,7 +51,7 @@ class NoteItem extends StatelessWidget {
                       note.delete();
                       BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.delete,
                       size: 30,
                       color: Colors.black,
@@ -61,7 +61,7 @@ class NoteItem extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 12),
                 child: Text(
                   note.date,
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ),
             ],
