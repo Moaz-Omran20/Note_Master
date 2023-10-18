@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note/cubits/add_notes/add_notes_cubit.dart';
-import 'package:note/models/note_model.dart';
 
 import '../../constants/colors.dart';
+import '../../models/note_model.dart';
 import 'color_item.dart';
 
-class ColorsListView extends StatefulWidget {
-  const ColorsListView({super.key});
+class EditNotesColors extends StatefulWidget {
+  final NoteModel note;
+
+  EditNotesColors({required this.note});
 
   @override
-  State<ColorsListView> createState() => _ColorsListViewState();
+  State<EditNotesColors> createState() => _EditNotesColorsState();
 }
 
-class _ColorsListViewState extends State<ColorsListView> {
-  int currentIndex = 0;
+class _EditNotesColorsState extends State<EditNotesColors> {
+  late int currentIndex;
 
+  @override
+  void initState() {
+    currentIndex = kNoteColors.indexOf(Color(widget.note.color));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class _ColorsListViewState extends State<ColorsListView> {
               child: GestureDetector(
                   onTap: () {
                     currentIndex = index;
-                    BlocProvider.of<AddNotesCubit>(context).color = kNoteColors[index] ;
+                    widget.note.color = kNoteColors[index].value;
                     setState(() {});
                   },
                   child: ColorItem(
@@ -42,5 +47,3 @@ class _ColorsListViewState extends State<ColorsListView> {
     );
   }
 }
-
-
