@@ -5,6 +5,7 @@ import 'package:note/cubits/notes/notes_cubit.dart';
 import 'package:note/models/note_model.dart';
 import 'package:note/simple_bloc_observer.dart';
 import 'package:note/views/note_view.dart';
+import 'package:note/views/splash_screen/splash_screen.dart';
 import 'constants/hive.dart';
 
 void main() async {
@@ -24,6 +25,8 @@ class NoteMaster extends StatelessWidget {
     return BlocProvider(
       create: (context) => NotesCubit(),
       child: MaterialApp(
+        routes: {SplashScreen.routeName: (context) => SplashScreen(),},
+        initialRoute:SplashScreen.routeName,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
         home: const NotesView(),
